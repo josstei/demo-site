@@ -23,11 +23,11 @@ const avatarColors = {
 };
 ---
 
-<div class:list={['bg-white rounded-2xl p-6 shadow-md border-l-4', borderColors[color]]}>
+<div class:list={['bg-white rounded-2xl p-6 shadow-md border-l-4 card-tilt', borderColors[color]]}>
   <p class="text-pastel-text/70 leading-relaxed italic mb-4">"{quote}"</p>
   <div class="flex items-center gap-3">
     <!-- Avatar placeholder -->
-    <div class:list={['w-12 h-12 rounded-full flex items-center justify-center', avatarColors[color]]}>
+    <div class:list={['w-12 h-12 rounded-full flex items-center justify-center transition-transform duration-300 hover:scale-110', avatarColors[color]]}>
       <span class="text-lg">👤</span>
     </div>
     <div>

@@ -20,11 +20,101 @@ const { title, description = 'Little Learners English - Making English fun for y
     <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
     <title>{title} | Little Learners English</title>
   </head>
-  <body class="min-h-screen flex flex-col">
+  <body class="min-h-screen flex flex-col overflow-x-hidden">
     <Header />
     <main class="flex-1">
       <slot />
     </main>
     <Footer />
+
+    <script>
+      // Scroll Reveal Observer
+      const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      });
+
+      revealElements.forEach((el) => revealObserver.observe(el));
+
+      // Button ripple effect tracker
+      document.querySelectorAll('.btn-ripple').forEach((btn) => {
+        btn.addEventListener('mousemove', (e) => {
+          const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
+          const x = ((e.clientX - rect.left) / rect.width) * 100;
+          const y = ((e.clientY - rect.top) / rect.height) * 100;
+          (e.currentTarget as HTMLElement).style.setProperty('--x', x + '%');
+          (e.currentTarget as HTMLElement).style.setProperty('--y', y + '%');
+        });
+      });
+
+      // Confetti burst on CTA click
+      function createConfetti(e: MouseEvent) {
+        const colors = ['#89CFF0', '#FFB7CE', '#98FB98', '#FDFD96', '#C3B1E1'];
+        const button = e.currentTarget as HTMLElement;
+        const rect = button.getBoundingClientRect();
+
+        for (let i = 0; i < 20; i++) {
+          const confetti = document.createElement('div');
+          confetti.style.cssText = `
+            position: fixed;
+            width: ${Math.random() * 8 + 4}px;
+            height: ${Math.random() * 8 + 4}px;
+            background: ${colors[Math.floor(Math.random() * colors.length)]};
+            border-radius: ${Math.random() > 0.5 ? '50%' : '2px'};
+            left: ${rect.left + rect.width / 2 + (Math.random() - 0.5) * 80}px;
+            top: ${rect.top}px;
+            pointer-events: none;
+            z-index: 9999;
+            animation: confetti-fall ${Math.random() * 1 + 0.8}s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+          `;
+          document.body.appendChild(confetti);
+          setTimeout(() => confetti.remove(), 2000);
+        }
+      }
+
+      document.querySelectorAll('.confetti-trigger').forEach((btn) => {
+        btn.addEventListener('click', createConfetti as EventListener);
+      });
+
+      // Parallax-lite on hero decorative elements
+      const heroSection = document.querySelector('.hero-parallax');
+      if (heroSection) {
+        const blobs = heroSection.querySelectorAll('.parallax-blob');
+        window.addEventListener('mousemove', (e) => {
+          const x = (e.clientX / window.innerWidth - 0.5) * 2;
+          const y = (e.clientY / window.innerHeight - 0.5) * 2;
+          blobs.forEach((blob, i) => {
+            const speed = (i + 1) * 8;
+            (blob as HTMLElement).style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+          });
+        });
+      }
+
+      // Magnetic effect on social icons
+      document.querySelectorAll('.magnetic').forEach((el) => {
+        el.addEventListener('mousemove', (e) => {
+          const rect = (el as HTMLElement).getBoundingClientRect();
+          const x = e.clientX - rect.left - rect.width / 2;
+          const y = e.clientY - rect.top - rect.height / 2;
+          (el as HTMLElement).style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+        });
+        el.addEventListener('mouseleave', () => {
+          (el as HTMLElement).style.transform = 'translate(0, 0)';
+          (el as HTMLElement).style.transition = 'transform 0.3s ease';
+        });
+        el.addEventListener('mouseenter', () => {
+          (el as HTMLElement).style.transition = 'none';
+        });
+      });
+    </script>
   </body>
 </html>
