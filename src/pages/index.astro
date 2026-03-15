@@ -16,7 +16,7 @@ import ImagePlaceholder from '../components/ImagePlaceholder.astro';
 
   <!-- What We Offer -->
   <section class="max-w-6xl mx-auto px-6 sm:px-8 py-16">
-    <div class="text-center mb-12">
+    <div class="text-center mb-12 reveal">
       <h2 class="text-3xl md:text-4xl font-extrabold text-pastel-text mb-4">What We Offer</h2>
       <p class="text-pastel-text/60 text-lg max-w-2xl mx-auto">
         Fun and engaging ways for children to learn English at their own pace.
@@ -24,42 +24,50 @@ import ImagePlaceholder from '../components/ImagePlaceholder.astro';
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      <Card
-        title="Vocabulary"
-        description="Learn new words every day with colorful flashcards and fun activities."
-        icon="🔤"
-        color="blue"
-      />
-      <Card
-        title="Grammar"
-        description="Understand English grammar through simple, easy-to-follow lessons."
-        icon="✏️"
-        color="pink"
-      />
-      <Card
-        title="Stories"
-        description="Read and listen to exciting stories that make learning come alive."
-        icon="📖"
-        color="green"
-      />
-      <Card
-        title="Games"
-        description="Play interactive games that make practicing English feel like fun."
-        icon="🎮"
-        color="yellow"
-      />
+      <div class="reveal stagger-1">
+        <Card
+          title="Vocabulary"
+          description="Learn new words every day with colorful flashcards and fun activities."
+          icon="🔤"
+          color="blue"
+        />
+      </div>
+      <div class="reveal stagger-2">
+        <Card
+          title="Grammar"
+          description="Understand English grammar through simple, easy-to-follow lessons."
+          icon="✏️"
+          color="pink"
+        />
+      </div>
+      <div class="reveal stagger-3">
+        <Card
+          title="Stories"
+          description="Read and listen to exciting stories that make learning come alive."
+          icon="📖"
+          color="green"
+        />
+      </div>
+      <div class="reveal stagger-4">
+        <Card
+          title="Games"
+          description="Play interactive games that make practicing English feel like fun."
+          icon="🎮"
+          color="yellow"
+        />
+      </div>
     </div>
   </section>
 
   <!-- Image Banner Placeholder -->
-  <section class="max-w-6xl mx-auto px-6 sm:px-8 pb-16">
+  <section class="max-w-6xl mx-auto px-6 sm:px-8 pb-16 reveal-scale">
     <ImagePlaceholder label="Banner Image - Students Learning" aspectRatio="wide" icon="🎒" />
   </section>
 
   <!-- Testimonials -->
   <section class="bg-pastel-purple/10 py-16">
     <div class="max-w-6xl mx-auto px-6 sm:px-8">
-      <div class="text-center mb-12">
+      <div class="text-center mb-12 reveal">
         <h2 class="text-3xl md:text-4xl font-extrabold text-pastel-text mb-4">What Parents Say</h2>
         <p class="text-pastel-text/60 text-lg max-w-2xl mx-auto">
           Hear from families whose children love learning with us.
@@ -67,27 +75,33 @@ import ImagePlaceholder from '../components/ImagePlaceholder.astro';
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <TestimonialCard
-          name="Placeholder Name"
-          role="Parent"
-          quote="My child looks forward to every lesson. The teachers make learning English so much fun!"
-          color="blue"
-        />
-        <TestimonialCard
-          name="Placeholder Name"
-          role="Parent"
-          quote="I've seen amazing progress in just a few months. The activities are perfect for young learners."
-          color="pink"
-        />
-        <TestimonialCard
-          name="Placeholder Name"
-          role="Parent"
-          quote="The best English program we've found for our kids. Highly recommended!"
-          color="purple"
-        />
+        <div class="reveal-left stagger-1">
+          <TestimonialCard
+            name="Placeholder Name"
+            role="Parent"
+            quote="My child looks forward to every lesson. The teachers make learning English so much fun!"
+            color="blue"
+          />
+        </div>
+        <div class="reveal stagger-2">
+          <TestimonialCard
+            name="Placeholder Name"
+            role="Parent"
+            quote="I've seen amazing progress in just a few months. The activities are perfect for young learners."
+            color="pink"
+          />
+        </div>
+        <div class="reveal-right stagger-3">
+          <TestimonialCard
+            name="Placeholder Name"
+            role="Parent"
+            quote="The best English program we've found for our kids. Highly recommended!"
+            color="purple"
+          />
+        </div>
       </div>
 
-      <p class="text-center text-pastel-text/40 text-sm mt-8">
+      <p class="text-center text-pastel-text/40 text-sm mt-8 reveal">
         <!-- Placeholder: Replace with real testimonials and photos -->
         These are placeholder testimonials. Add real ones as they come in!
       </p>
@@ -95,15 +109,15 @@ import ImagePlaceholder from '../components/ImagePlaceholder.astro';
   </section>
 
   <!-- CTA -->
-  <section class="max-w-6xl mx-auto px-6 sm:px-8 py-16 text-center">
-    <div class="bg-gradient-to-r from-pastel-blue/20 via-pastel-pink/20 to-pastel-purple/20 rounded-3xl p-8 sm:p-12">
+  <section class="max-w-6xl mx-auto px-6 sm:px-8 py-16 text-center reveal-scale">
+    <div class="bg-gradient-to-r from-pastel-blue/20 via-pastel-pink/20 to-pastel-purple/20 rounded-3xl p-8 sm:p-12 animate-gradient">
       <h2 class="text-3xl md:text-4xl font-extrabold text-pastel-text mb-4">Ready to Start Learning?</h2>
       <p class="text-pastel-text/60 text-lg mb-8 max-w-xl mx-auto">
         Join hundreds of young learners who are discovering the joy of English every day.
       </p>
       <a
         href={`${import.meta.env.BASE_URL}contact/`}
-        class="inline-block bg-pastel-pink text-white font-bold px-8 py-4 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+        class="inline-block bg-pastel-pink text-white font-bold px-8 py-4 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 btn-ripple confetti-trigger"
       >
         Get in Touch
       </a>

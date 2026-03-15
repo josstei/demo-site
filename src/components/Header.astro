@@ -7,10 +7,10 @@ const navLinks = [
 ];
 ---
 
-<header class="bg-white/80 backdrop-blur-sm shadow-sm sticky top-0 z-50">
+<header class="bg-white/80 backdrop-blur-sm shadow-sm sticky top-0 z-50 transition-shadow duration-300" id="site-header">
   <nav class="max-w-6xl mx-auto px-6 sm:px-8 py-4 flex items-center justify-between">
     <a href={import.meta.env.BASE_URL} class="flex items-center gap-3 group">
-      <div class="w-10 h-10 bg-pastel-blue rounded-full flex items-center justify-center text-white font-bold text-lg">
+      <div class="w-10 h-10 bg-pastel-blue rounded-full flex items-center justify-center text-white font-bold text-lg transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12">
         A
       </div>
       <span class="text-xl font-extrabold text-pastel-text group-hover:text-pastel-blue transition-colors">
@@ -24,7 +24,7 @@ const navLinks = [
         <li>
           <a
             href={link.href}
-            class="text-pastel-text font-semibold hover:text-pastel-blue transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[3px] after:bg-pastel-pink after:rounded-full after:transition-all hover:after:w-full"
+            class="text-pastel-text font-semibold hover:text-pastel-blue transition-colors animated-underline"
           >
             {link.label}
           </a>
@@ -38,20 +38,20 @@ const navLinks = [
       class="md:hidden p-2 rounded-lg hover:bg-pastel-blue/20 transition-colors"
       aria-label="Toggle menu"
     >
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg class="w-6 h-6 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" id="menu-icon">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
       </svg>
     </button>
   </nav>
 
   <!-- Mobile nav -->
-  <div id="mobile-menu" class="hidden md:hidden border-t border-pastel-blue/20">
+  <div id="mobile-menu" class="hidden md:hidden border-t border-pastel-blue/20 overflow-hidden transition-all duration-300">
     <ul class="px-6 sm:px-8 py-4 space-y-3">
-      {navLinks.map((link) => (
-        <li>
+      {navLinks.map((link, i) => (
+        <li style={`animation-delay: ${i * 0.05}s;`}>
           <a
             href={link.href}
-            class="block py-2 px-4 rounded-lg text-pastel-text font-semibold hover:bg-pastel-blue/20 transition-colors"
+            class="block py-2 px-4 rounded-lg text-pastel-text font-semibold hover:bg-pastel-blue/20 transition-all duration-200 hover:translate-x-2"
           >
             {link.label}
           </a>
@@ -64,7 +64,24 @@ const navLinks = [
 <script>
   const btn = document.getElementById('mobile-menu-btn');
   const menu = document.getElementById('mobile-menu');
+  const icon = document.getElementById('menu-icon');
   btn?.addEventListener('click', () => {
     menu?.classList.toggle('hidden');
+    icon?.classList.toggle('rotate-90');
+  });
+
+  // Shrink header on scroll
+  const header = document.getElementById('site-header');
+  let lastScroll = 0;
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.scrollY;
+    if (currentScroll > 50) {
+      header?.classList.add('shadow-md');
+      header?.classList.remove('shadow-sm');
+    } else {
+      header?.classList.remove('shadow-md');
+      header?.classList.add('shadow-sm');
+    }
+    lastScroll = currentScroll;
   });
 </script>

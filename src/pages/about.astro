@@ -5,10 +5,15 @@ import ImagePlaceholder from '../components/ImagePlaceholder.astro';
 
 <Layout title="About Us">
   <!-- Page Header -->
-  <section class="bg-gradient-to-br from-pastel-pink/20 via-pastel-purple/10 to-pastel-blue/20 py-16 md:py-20">
-    <div class="max-w-6xl mx-auto px-6 sm:px-8 text-center">
-      <h1 class="text-4xl md:text-5xl font-extrabold text-pastel-text mb-4">About Us</h1>
-      <p class="text-lg text-pastel-text/60 max-w-2xl mx-auto">
+  <section class="bg-gradient-to-br from-pastel-pink/20 via-pastel-purple/10 to-pastel-blue/20 py-16 md:py-20 animate-gradient relative overflow-hidden">
+    <!-- Floating decorations -->
+    <div class="absolute top-8 left-[15%] w-3 h-3 bg-pastel-pink rounded-full animate-bounce-soft"></div>
+    <div class="absolute bottom-12 right-[20%] w-2 h-2 bg-pastel-purple rounded-full animate-bounce-soft" style="animation-delay: 0.5s;"></div>
+    <div class="absolute top-1/2 right-[10%] w-16 h-16 bg-pastel-blue/15 animate-morph blur-sm"></div>
+
+    <div class="max-w-6xl mx-auto px-6 sm:px-8 text-center relative z-10">
+      <h1 class="hero-title text-4xl md:text-5xl font-extrabold text-pastel-text mb-4">About Us</h1>
+      <p class="hero-subtitle text-lg text-pastel-text/60 max-w-2xl mx-auto">
         Learn more about our mission to make English learning fun, engaging, and accessible for every child.
       </p>
     </div>
@@ -17,7 +22,7 @@ import ImagePlaceholder from '../components/ImagePlaceholder.astro';
   <!-- Mission -->
   <section class="max-w-6xl mx-auto px-6 sm:px-8 py-16">
     <div class="grid md:grid-cols-2 gap-12 items-center">
-      <div class="text-center md:text-left">
+      <div class="text-center md:text-left reveal-left">
         <h2 class="text-3xl font-extrabold text-pastel-text mb-6">Our Mission</h2>
         <p class="text-pastel-text/70 leading-relaxed mb-4">
           At Little Learners English, we believe every child deserves the chance to learn English in a warm,
@@ -32,36 +37,38 @@ import ImagePlaceholder from '../components/ImagePlaceholder.astro';
           Our goal is simple: make learning English the highlight of every child's day.
         </p>
       </div>
-      <ImagePlaceholder label="Mission Image - Happy Students" aspectRatio="square" icon="🌟" />
+      <div class="reveal-right">
+        <ImagePlaceholder label="Mission Image - Happy Students" aspectRatio="square" icon="🌟" />
+      </div>
     </div>
   </section>
 
   <!-- Values -->
   <section class="bg-pastel-green/10 py-16">
     <div class="max-w-6xl mx-auto px-6 sm:px-8">
-      <h2 class="text-3xl font-extrabold text-pastel-text text-center mb-12">Our Approach</h2>
+      <h2 class="text-3xl font-extrabold text-pastel-text text-center mb-12 reveal">Our Approach</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-white rounded-2xl p-8 shadow-sm text-center">
+        <div class="bg-white rounded-2xl p-8 shadow-sm text-center card-tilt reveal stagger-1">
           <div class="w-16 h-16 bg-pastel-blue/20 rounded-full flex items-center justify-center text-3xl mx-auto mb-4">
-            🎯
+            <span class="animate-wiggle">🎯</span>
           </div>
           <h3 class="text-xl font-bold text-pastel-text mb-3">Learn Through Play</h3>
           <p class="text-pastel-text/60 leading-relaxed">
             Children learn best when they're having fun. Every lesson includes games, songs, and hands-on activities.
           </p>
         </div>
-        <div class="bg-white rounded-2xl p-8 shadow-sm text-center">
+        <div class="bg-white rounded-2xl p-8 shadow-sm text-center card-tilt reveal stagger-2">
           <div class="w-16 h-16 bg-pastel-pink/20 rounded-full flex items-center justify-center text-3xl mx-auto mb-4">
-            💛
+            <span class="animate-wiggle">💛</span>
           </div>
           <h3 class="text-xl font-bold text-pastel-text mb-3">Supportive Environment</h3>
           <p class="text-pastel-text/60 leading-relaxed">
             We create a safe, encouraging space where every child feels confident to try, make mistakes, and grow.
           </p>
         </div>
-        <div class="bg-white rounded-2xl p-8 shadow-sm text-center">
+        <div class="bg-white rounded-2xl p-8 shadow-sm text-center card-tilt reveal stagger-3">
           <div class="w-16 h-16 bg-pastel-green/20 rounded-full flex items-center justify-center text-3xl mx-auto mb-4">
-            🌱
+            <span class="animate-wiggle">🌱</span>
           </div>
           <h3 class="text-xl font-bold text-pastel-text mb-3">Step by Step</h3>
           <p class="text-pastel-text/60 leading-relaxed">
@@ -74,8 +81,8 @@ import ImagePlaceholder from '../components/ImagePlaceholder.astro';
 
   <!-- Team -->
   <section class="max-w-6xl mx-auto px-6 sm:px-8 py-16">
-    <h2 class="text-3xl font-extrabold text-pastel-text text-center mb-4">Meet Our Team</h2>
-    <p class="text-pastel-text/60 text-center mb-12 max-w-xl mx-auto">
+    <h2 class="text-3xl font-extrabold text-pastel-text text-center mb-4 reveal">Meet Our Team</h2>
+    <p class="text-pastel-text/60 text-center mb-12 max-w-xl mx-auto reveal">
       Our dedicated teachers bring passion and experience to every class.
     </p>
 
@@ -85,10 +92,10 @@ import ImagePlaceholder from '../components/ImagePlaceholder.astro';
         { name: 'Teacher Name', role: 'English Coach', color: 'bg-pastel-pink/20' },
         { name: 'Teacher Name', role: 'Activities Lead', color: 'bg-pastel-green/20' },
         { name: 'Teacher Name', role: 'Reading Specialist', color: 'bg-pastel-purple/20' },
-      ].map((teacher) => (
-        <div class="text-center">
-          <div class:list={['w-32 h-32 rounded-full mx-auto mb-4 flex items-center justify-center', teacher.color]}>
-            <span class="text-4xl">👤</span>
+      ].map((teacher, i) => (
+        <div class={`text-center reveal stagger-${i + 1}`}>
+          <div class:list={['w-32 h-32 rounded-full mx-auto mb-4 flex items-center justify-center transition-all duration-500 hover:scale-110 hover:shadow-lg', teacher.color]}>
+            <span class="text-4xl animate-wiggle">👤</span>
           </div>
           <h3 class="font-bold text-pastel-text">{teacher.name}</h3>
           <p class="text-pastel-text/50 text-sm">{teacher.role}</p>
@@ -97,7 +104,7 @@ import ImagePlaceholder from '../components/ImagePlaceholder.astro';
       ))}
     </div>
 
-    <p class="text-center text-pastel-text/40 text-sm mt-8">
+    <p class="text-center text-pastel-text/40 text-sm mt-8 reveal">
       <!-- Placeholder: Add real team member names, photos, and bios -->
       Replace with real team information as available.
     </p>

@@ -31,13 +31,13 @@ const Tag = href ? 'a' : 'div';
 <Tag
   href={href}
   class:list={[
-    'block p-6 rounded-2xl border-2 transition-all duration-300 hover:shadow-lg hover:-translate-y-1',
+    'block p-6 rounded-2xl border-2 card-tilt',
     colorMap[color],
     href && 'cursor-pointer',
   ]}
 >
   <div class:list={['w-14 h-14 rounded-xl flex items-center justify-center text-2xl mb-4', iconBgMap[color]]}>
-    {icon}
+    <span class="animate-wiggle">{icon}</span>
   </div>
   <h3 class="text-xl font-bold text-pastel-text mb-2">{title}</h3>
   <p class="text-pastel-text/70 leading-relaxed">{description}</p>
