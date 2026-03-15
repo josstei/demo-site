@@ -1,0 +1,38 @@
+---
+interface Props {
+  name: string;
+  role?: string;
+  quote: string;
+  color?: 'blue' | 'pink' | 'green' | 'purple';
+}
+
+const { name, role = 'Parent', quote, color = 'blue' } = Astro.props;
+
+const borderColors = {
+  blue: 'border-pastel-blue',
+  pink: 'border-pastel-pink',
+  green: 'border-pastel-green',
+  purple: 'border-pastel-purple',
+};
+
+const avatarColors = {
+  blue: 'bg-pastel-blue/30',
+  pink: 'bg-pastel-pink/30',
+  green: 'bg-pastel-green/30',
+  purple: 'bg-pastel-purple/30',
+};
+---
+
+<div class:list={['bg-white rounded-2xl p-6 shadow-md border-l-4', borderColors[color]]}>
+  <p class="text-pastel-text/70 leading-relaxed italic mb-4">"{quote}"</p>
+  <div class="flex items-center gap-3">
+    <!-- Avatar placeholder -->
+    <div class:list={['w-12 h-12 rounded-full flex items-center justify-center', avatarColors[color]]}>
+      <span class="text-lg">👤</span>
+    </div>
+    <div>
+      <p class="font-bold text-pastel-text">{name}</p>
+      <p class="text-sm text-pastel-text/50">{role}</p>
+    </div>
+  </div>
+</div>

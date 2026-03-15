@@ -1,0 +1,28 @@
+---
+interface Props {
+  label?: string;
+  aspectRatio?: 'square' | 'video' | 'wide';
+  icon?: string;
+}
+
+const { label = 'Image Placeholder', aspectRatio = 'video', icon = '🖼️' } = Astro.props;
+
+const aspectMap = {
+  square: 'aspect-square',
+  video: 'aspect-video',
+  wide: 'aspect-[21/9]',
+};
+---
+
+<div
+  class:list={[
+    'w-full bg-pastel-blue/5 border-4 border-dashed border-pastel-blue/20 rounded-2xl flex items-center justify-center',
+    aspectMap[aspectRatio],
+  ]}
+>
+  <div class="text-center p-4">
+    <div class="text-4xl mb-2">{icon}</div>
+    <p class="text-pastel-text/40 font-semibold text-sm">{label}</p>
+    <p class="text-pastel-text/30 text-xs mt-1">Add your image here</p>
+  </div>
+</div>

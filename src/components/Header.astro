@@ -1,0 +1,70 @@
+---
+const navLinks = [
+  { href: `${import.meta.env.BASE_URL}`, label: 'Home' },
+  { href: `${import.meta.env.BASE_URL}about/`, label: 'About' },
+  { href: `${import.meta.env.BASE_URL}lessons/`, label: 'Lessons' },
+  { href: `${import.meta.env.BASE_URL}contact/`, label: 'Contact' },
+];
+---
+
+<header class="bg-white/80 backdrop-blur-sm shadow-sm sticky top-0 z-50">
+  <nav class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+    <a href={import.meta.env.BASE_URL} class="flex items-center gap-3 group">
+      <div class="w-10 h-10 bg-pastel-blue rounded-full flex items-center justify-center text-white font-bold text-lg">
+        A
+      </div>
+      <span class="text-xl font-extrabold text-pastel-text group-hover:text-pastel-blue transition-colors">
+        Little Learners English
+      </span>
+    </a>
+
+    <!-- Desktop nav -->
+    <ul class="hidden md:flex items-center gap-8">
+      {navLinks.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            class="text-pastel-text font-semibold hover:text-pastel-blue transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[3px] after:bg-pastel-pink after:rounded-full after:transition-all hover:after:w-full"
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <!-- Mobile menu button -->
+    <button
+      id="mobile-menu-btn"
+      class="md:hidden p-2 rounded-lg hover:bg-pastel-blue/20 transition-colors"
+      aria-label="Toggle menu"
+    >
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </nav>
+
+  <!-- Mobile nav -->
+  <div id="mobile-menu" class="hidden md:hidden border-t border-pastel-blue/20">
+    <ul class="px-4 py-4 space-y-3">
+      {navLinks.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            class="block py-2 px-4 rounded-lg text-pastel-text font-semibold hover:bg-pastel-blue/20 transition-colors"
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  btn?.addEventListener('click', () => {
+    menu?.classList.toggle('hidden');
+  });
+</script>

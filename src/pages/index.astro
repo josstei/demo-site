@@ -1,0 +1,112 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Card from '../components/Card.astro';
+import TestimonialCard from '../components/TestimonialCard.astro';
+import ImagePlaceholder from '../components/ImagePlaceholder.astro';
+---
+
+<Layout title="Home">
+  <Hero
+    title="Learning English is Fun! 🌈"
+    subtitle="Welcome to Little Learners English! We help young students discover the joy of learning English through play, stories, and creative activities."
+    ctaText="Explore Lessons"
+    ctaHref={`${import.meta.env.BASE_URL}lessons/`}
+  />
+
+  <!-- What We Offer -->
+  <section class="max-w-6xl mx-auto px-4 py-16">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-pastel-text mb-4">What We Offer</h2>
+      <p class="text-pastel-text/60 text-lg max-w-2xl mx-auto">
+        Fun and engaging ways for children to learn English at their own pace.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <Card
+        title="Vocabulary"
+        description="Learn new words every day with colorful flashcards and fun activities."
+        icon="🔤"
+        color="blue"
+      />
+      <Card
+        title="Grammar"
+        description="Understand English grammar through simple, easy-to-follow lessons."
+        icon="✏️"
+        color="pink"
+      />
+      <Card
+        title="Stories"
+        description="Read and listen to exciting stories that make learning come alive."
+        icon="📖"
+        color="green"
+      />
+      <Card
+        title="Games"
+        description="Play interactive games that make practicing English feel like fun."
+        icon="🎮"
+        color="yellow"
+      />
+    </div>
+  </section>
+
+  <!-- Image Banner Placeholder -->
+  <section class="max-w-6xl mx-auto px-4 pb-16">
+    <ImagePlaceholder label="Banner Image - Students Learning" aspectRatio="wide" icon="🎒" />
+  </section>
+
+  <!-- Testimonials -->
+  <section class="bg-pastel-purple/10 py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-pastel-text mb-4">What Parents Say</h2>
+        <p class="text-pastel-text/60 text-lg max-w-2xl mx-auto">
+          Hear from families whose children love learning with us.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <TestimonialCard
+          name="Placeholder Name"
+          role="Parent"
+          quote="My child looks forward to every lesson. The teachers make learning English so much fun!"
+          color="blue"
+        />
+        <TestimonialCard
+          name="Placeholder Name"
+          role="Parent"
+          quote="I've seen amazing progress in just a few months. The activities are perfect for young learners."
+          color="pink"
+        />
+        <TestimonialCard
+          name="Placeholder Name"
+          role="Parent"
+          quote="The best English program we've found for our kids. Highly recommended!"
+          color="purple"
+        />
+      </div>
+
+      <p class="text-center text-pastel-text/40 text-sm mt-8">
+        <!-- Placeholder: Replace with real testimonials and photos -->
+        These are placeholder testimonials. Add real ones as they come in!
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="max-w-6xl mx-auto px-4 py-16 text-center">
+    <div class="bg-gradient-to-r from-pastel-blue/20 via-pastel-pink/20 to-pastel-purple/20 rounded-3xl p-12">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-pastel-text mb-4">Ready to Start Learning?</h2>
+      <p class="text-pastel-text/60 text-lg mb-8 max-w-xl mx-auto">
+        Join hundreds of young learners who are discovering the joy of English every day.
+      </p>
+      <a
+        href={`${import.meta.env.BASE_URL}contact/`}
+        class="inline-block bg-pastel-pink text-white font-bold px-8 py-4 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+      >
+        Get in Touch
+      </a>
+    </div>
+  </section>
+</Layout>

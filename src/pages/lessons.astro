@@ -1,0 +1,115 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+import ImagePlaceholder from '../components/ImagePlaceholder.astro';
+---
+
+<Layout title="Lessons">
+  <!-- Page Header -->
+  <section class="bg-gradient-to-br from-pastel-green/20 via-pastel-yellow/10 to-pastel-blue/20 py-16 md:py-20">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl font-extrabold text-pastel-text mb-4">Our Lessons</h1>
+      <p class="text-lg text-pastel-text/60 max-w-2xl mx-auto">
+        Explore our English lessons designed for every level. Each lesson is packed with fun activities!
+      </p>
+    </div>
+  </section>
+
+  <!-- Levels -->
+  <section class="max-w-6xl mx-auto px-4 py-16">
+    <h2 class="text-3xl font-extrabold text-pastel-text text-center mb-12">Choose Your Level</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="bg-white rounded-2xl p-8 border-2 border-pastel-green/30 shadow-sm text-center hover:shadow-lg transition-shadow">
+        <div class="w-20 h-20 bg-pastel-green/20 rounded-full flex items-center justify-center text-4xl mx-auto mb-4">
+          🌱
+        </div>
+        <h3 class="text-2xl font-bold text-pastel-text mb-2">Beginner</h3>
+        <p class="text-pastel-text/60 mb-4">Perfect for children just starting their English journey.</p>
+        <ul class="text-left text-pastel-text/70 space-y-2 mb-6">
+          <li class="flex items-center gap-2"><span class="text-pastel-green">✓</span> ABCs and Phonics</li>
+          <li class="flex items-center gap-2"><span class="text-pastel-green">✓</span> Basic Greetings</li>
+          <li class="flex items-center gap-2"><span class="text-pastel-green">✓</span> Colors & Numbers</li>
+          <li class="flex items-center gap-2"><span class="text-pastel-green">✓</span> Simple Sentences</li>
+        </ul>
+        <span class="inline-block bg-pastel-green/20 text-pastel-text font-semibold px-6 py-2 rounded-full text-sm">
+          Ages 4-6
+        </span>
+      </div>
+
+      <div class="bg-white rounded-2xl p-8 border-2 border-pastel-blue/30 shadow-sm text-center hover:shadow-lg transition-shadow relative">
+        <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-pastel-blue text-white text-xs font-bold px-4 py-1 rounded-full">
+          Most Popular
+        </div>
+        <div class="w-20 h-20 bg-pastel-blue/20 rounded-full flex items-center justify-center text-4xl mx-auto mb-4">
+          🌿
+        </div>
+        <h3 class="text-2xl font-bold text-pastel-text mb-2">Intermediate</h3>
+        <p class="text-pastel-text/60 mb-4">For learners ready to build on their foundation.</p>
+        <ul class="text-left text-pastel-text/70 space-y-2 mb-6">
+          <li class="flex items-center gap-2"><span class="text-pastel-blue">✓</span> Reading Short Stories</li>
+          <li class="flex items-center gap-2"><span class="text-pastel-blue">✓</span> Basic Conversations</li>
+          <li class="flex items-center gap-2"><span class="text-pastel-blue">✓</span> Grammar Foundations</li>
+          <li class="flex items-center gap-2"><span class="text-pastel-blue">✓</span> Writing Practice</li>
+        </ul>
+        <span class="inline-block bg-pastel-blue/20 text-pastel-text font-semibold px-6 py-2 rounded-full text-sm">
+          Ages 7-9
+        </span>
+      </div>
+
+      <div class="bg-white rounded-2xl p-8 border-2 border-pastel-purple/30 shadow-sm text-center hover:shadow-lg transition-shadow">
+        <div class="w-20 h-20 bg-pastel-purple/20 rounded-full flex items-center justify-center text-4xl mx-auto mb-4">
+          🌳
+        </div>
+        <h3 class="text-2xl font-bold text-pastel-text mb-2">Advanced</h3>
+        <p class="text-pastel-text/60 mb-4">For confident learners who want to go further.</p>
+        <ul class="text-left text-pastel-text/70 space-y-2 mb-6">
+          <li class="flex items-center gap-2"><span class="text-pastel-purple">✓</span> Creative Writing</li>
+          <li class="flex items-center gap-2"><span class="text-pastel-purple">✓</span> Presentations</li>
+          <li class="flex items-center gap-2"><span class="text-pastel-purple">✓</span> Advanced Grammar</li>
+          <li class="flex items-center gap-2"><span class="text-pastel-purple">✓</span> Reading Comprehension</li>
+        </ul>
+        <span class="inline-block bg-pastel-purple/20 text-pastel-text font-semibold px-6 py-2 rounded-full text-sm">
+          Ages 10-12
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sample Lessons -->
+  <section class="bg-pastel-yellow/10 py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl font-extrabold text-pastel-text text-center mb-4">Sample Lessons</h2>
+      <p class="text-pastel-text/60 text-center mb-12 max-w-xl mx-auto">
+        Here's a taste of what our students learn. More lessons added regularly!
+      </p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <Card title="My Family" description="Learn words for family members and practice simple introductions." icon="👨‍👩‍👧‍👦" color="blue" />
+        <Card title="Animals Around Us" description="Discover animal names and sounds through fun activities." icon="🐾" color="green" />
+        <Card title="Food & Drinks" description="Name your favorite foods and practice ordering at a restaurant." icon="🍎" color="pink" />
+        <Card title="At the Playground" description="Learn action words like run, jump, and climb through play." icon="🎪" color="yellow" />
+        <Card title="Weather & Seasons" description="Talk about the weather and learn seasonal vocabulary." icon="🌤️" color="purple" />
+        <Card title="My School Day" description="Describe daily routines and classroom items in English." icon="🏫" color="blue" />
+      </div>
+
+      <p class="text-center text-pastel-text/40 text-sm mt-8">
+        <!-- Placeholder: Add real lesson links and content -->
+        More lessons coming soon! Check back regularly for new content.
+      </p>
+    </div>
+  </section>
+
+  <!-- Progress Tracking Placeholder -->
+  <section class="max-w-6xl mx-auto px-4 py-16">
+    <div class="bg-gradient-to-r from-pastel-blue/10 via-pastel-green/10 to-pastel-yellow/10 rounded-3xl p-12 text-center">
+      <div class="text-5xl mb-4">📊</div>
+      <h2 class="text-3xl font-extrabold text-pastel-text mb-4">Progress Tracking</h2>
+      <p class="text-pastel-text/60 text-lg max-w-xl mx-auto mb-6">
+        Coming soon! Track your child's learning journey with our interactive progress dashboard.
+      </p>
+      <div class="inline-block bg-pastel-blue/10 border-2 border-dashed border-pastel-blue/30 rounded-2xl p-8">
+        <ImagePlaceholder label="Progress Dashboard Preview" aspectRatio="video" icon="📈" />
+      </div>
+    </div>
+  </section>
+</Layout>

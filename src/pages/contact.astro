@@ -1,0 +1,125 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ContactForm from '../components/ContactForm.astro';
+import ImagePlaceholder from '../components/ImagePlaceholder.astro';
+---
+
+<Layout title="Contact Us">
+  <!-- Page Header -->
+  <section class="bg-gradient-to-br from-pastel-blue/20 via-pastel-green/10 to-pastel-pink/20 py-16 md:py-20">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl font-extrabold text-pastel-text mb-4">Get in Touch</h1>
+      <p class="text-lg text-pastel-text/60 max-w-2xl mx-auto">
+        Have questions? We'd love to hear from you. Reach out and we'll get back to you as soon as possible.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="max-w-6xl mx-auto px-4 py-16">
+    <div class="grid md:grid-cols-2 gap-12">
+      <!-- Form -->
+      <div>
+        <h2 class="text-2xl font-extrabold text-pastel-text mb-6">Send Us a Message</h2>
+        <ContactForm />
+      </div>
+
+      <!-- Contact Info -->
+      <div>
+        <h2 class="text-2xl font-extrabold text-pastel-text mb-6">Contact Information</h2>
+        <div class="space-y-6">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 bg-pastel-blue/20 rounded-xl flex items-center justify-center text-xl shrink-0">
+              📧
+            </div>
+            <div>
+              <h3 class="font-bold text-pastel-text">Email</h3>
+              <p class="text-pastel-text/60">hello@littlelearnersenglish.com</p>
+              <p class="text-pastel-text/40 text-xs mt-1">Placeholder email</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 bg-pastel-pink/20 rounded-xl flex items-center justify-center text-xl shrink-0">
+              📞
+            </div>
+            <div>
+              <h3 class="font-bold text-pastel-text">Phone</h3>
+              <p class="text-pastel-text/60">+1 (555) 123-4567</p>
+              <p class="text-pastel-text/40 text-xs mt-1">Placeholder number</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 bg-pastel-green/20 rounded-xl flex items-center justify-center text-xl shrink-0">
+              📍
+            </div>
+            <div>
+              <h3 class="font-bold text-pastel-text">Location</h3>
+              <p class="text-pastel-text/60">123 Learning Lane, Education City</p>
+              <p class="text-pastel-text/40 text-xs mt-1">Placeholder address</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 bg-pastel-purple/20 rounded-xl flex items-center justify-center text-xl shrink-0">
+              🕐
+            </div>
+            <div>
+              <h3 class="font-bold text-pastel-text">Hours</h3>
+              <p class="text-pastel-text/60">Mon - Fri: 9:00 AM - 5:00 PM</p>
+              <p class="text-pastel-text/60">Sat: 10:00 AM - 2:00 PM</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Map Placeholder -->
+        <div class="mt-8">
+          <ImagePlaceholder label="Map / Location Image" aspectRatio="video" icon="🗺️" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-pastel-yellow/10 py-16">
+    <div class="max-w-3xl mx-auto px-4">
+      <h2 class="text-3xl font-extrabold text-pastel-text text-center mb-12">Frequently Asked Questions</h2>
+
+      <div class="space-y-4">
+        {[
+          {
+            q: 'What age group is this program for?',
+            a: 'Our program is designed for children ages 4-12 who are learning English as a second language. We have different levels to match each child\'s ability.',
+          },
+          {
+            q: 'Do my children need any prior English knowledge?',
+            a: 'Not at all! Our Beginner level starts from the very basics. We welcome children at any starting point.',
+          },
+          {
+            q: 'How are lessons delivered?',
+            a: 'Lessons combine interactive activities, storytelling, games, and creative exercises. We focus on making learning feel natural and enjoyable.',
+          },
+          {
+            q: 'How can I track my child\'s progress?',
+            a: 'We provide regular progress updates and are working on an interactive dashboard. Contact us for more details about your child\'s development.',
+          },
+          {
+            q: 'What makes Little Learners different?',
+            a: 'We specialize in young learners and use play-based methods backed by language education research. Our small class sizes ensure every child gets personal attention.',
+          },
+        ].map((faq) => (
+          <details class="bg-white rounded-2xl shadow-sm group">
+            <summary class="px-6 py-4 cursor-pointer font-bold text-pastel-text flex items-center justify-between hover:text-pastel-blue transition-colors">
+              {faq.q}
+              <span class="text-pastel-blue transition-transform group-open:rotate-45 text-xl">+</span>
+            </summary>
+            <div class="px-6 pb-4 text-pastel-text/70 leading-relaxed">
+              {faq.a}
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

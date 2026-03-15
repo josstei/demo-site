@@ -1,0 +1,105 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ImagePlaceholder from '../components/ImagePlaceholder.astro';
+---
+
+<Layout title="About Us">
+  <!-- Page Header -->
+  <section class="bg-gradient-to-br from-pastel-pink/20 via-pastel-purple/10 to-pastel-blue/20 py-16 md:py-20">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl font-extrabold text-pastel-text mb-4">About Us</h1>
+      <p class="text-lg text-pastel-text/60 max-w-2xl mx-auto">
+        Learn more about our mission to make English learning fun, engaging, and accessible for every child.
+      </p>
+    </div>
+  </section>
+
+  <!-- Mission -->
+  <section class="max-w-6xl mx-auto px-4 py-16">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <h2 class="text-3xl font-extrabold text-pastel-text mb-6">Our Mission</h2>
+        <p class="text-pastel-text/70 leading-relaxed mb-4">
+          At Little Learners English, we believe every child deserves the chance to learn English in a warm,
+          supportive, and fun environment. Our program is specially designed for young learners who are
+          discovering English as a new language.
+        </p>
+        <p class="text-pastel-text/70 leading-relaxed mb-4">
+          We use play-based learning, storytelling, music, and creative activities to help children build
+          confidence and develop their English skills naturally.
+        </p>
+        <p class="text-pastel-text/70 leading-relaxed">
+          Our goal is simple: make learning English the highlight of every child's day.
+        </p>
+      </div>
+      <ImagePlaceholder label="Mission Image - Happy Students" aspectRatio="square" icon="🌟" />
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="bg-pastel-green/10 py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl font-extrabold text-pastel-text text-center mb-12">Our Approach</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white rounded-2xl p-8 shadow-sm text-center">
+          <div class="w-16 h-16 bg-pastel-blue/20 rounded-full flex items-center justify-center text-3xl mx-auto mb-4">
+            🎯
+          </div>
+          <h3 class="text-xl font-bold text-pastel-text mb-3">Learn Through Play</h3>
+          <p class="text-pastel-text/60 leading-relaxed">
+            Children learn best when they're having fun. Every lesson includes games, songs, and hands-on activities.
+          </p>
+        </div>
+        <div class="bg-white rounded-2xl p-8 shadow-sm text-center">
+          <div class="w-16 h-16 bg-pastel-pink/20 rounded-full flex items-center justify-center text-3xl mx-auto mb-4">
+            💛
+          </div>
+          <h3 class="text-xl font-bold text-pastel-text mb-3">Supportive Environment</h3>
+          <p class="text-pastel-text/60 leading-relaxed">
+            We create a safe, encouraging space where every child feels confident to try, make mistakes, and grow.
+          </p>
+        </div>
+        <div class="bg-white rounded-2xl p-8 shadow-sm text-center">
+          <div class="w-16 h-16 bg-pastel-green/20 rounded-full flex items-center justify-center text-3xl mx-auto mb-4">
+            🌱
+          </div>
+          <h3 class="text-xl font-bold text-pastel-text mb-3">Step by Step</h3>
+          <p class="text-pastel-text/60 leading-relaxed">
+            Our curriculum grows with each child, building skills gradually so no one gets left behind.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section class="max-w-6xl mx-auto px-4 py-16">
+    <h2 class="text-3xl font-extrabold text-pastel-text text-center mb-4">Meet Our Team</h2>
+    <p class="text-pastel-text/60 text-center mb-12 max-w-xl mx-auto">
+      Our dedicated teachers bring passion and experience to every class.
+    </p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      {[
+        { name: 'Teacher Name', role: 'Head Teacher', color: 'bg-pastel-blue/20' },
+        { name: 'Teacher Name', role: 'English Coach', color: 'bg-pastel-pink/20' },
+        { name: 'Teacher Name', role: 'Activities Lead', color: 'bg-pastel-green/20' },
+        { name: 'Teacher Name', role: 'Reading Specialist', color: 'bg-pastel-purple/20' },
+      ].map((teacher) => (
+        <div class="text-center">
+          <div class:list={['w-32 h-32 rounded-full mx-auto mb-4 flex items-center justify-center', teacher.color]}>
+            <span class="text-4xl">👤</span>
+          </div>
+          <h3 class="font-bold text-pastel-text">{teacher.name}</h3>
+          <p class="text-pastel-text/50 text-sm">{teacher.role}</p>
+          <p class="text-pastel-text/30 text-xs mt-1">Photo placeholder</p>
+        </div>
+      ))}
+    </div>
+
+    <p class="text-center text-pastel-text/40 text-sm mt-8">
+      <!-- Placeholder: Add real team member names, photos, and bios -->
+      Replace with real team information as available.
+    </p>
+  </section>
+</Layout>
