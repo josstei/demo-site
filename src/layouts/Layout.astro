@@ -12,7 +12,7 @@ const { title, description = 'Little Learners English - Making English fun for y
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="overflow-x-hidden">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -70,7 +70,7 @@ const { title, description = 'Little Learners English - Making English fun for y
             height: ${Math.random() * 8 + 4}px;
             background: ${colors[Math.floor(Math.random() * colors.length)]};
             border-radius: ${Math.random() > 0.5 ? '50%' : '2px'};
-            left: ${rect.left + rect.width / 2 + (Math.random() - 0.5) * 80}px;
+            left: ${Math.min(Math.max(rect.left + rect.width / 2 + (Math.random() - 0.5) * 80, 0), window.innerWidth - 12)}px;
             top: ${rect.top}px;
             pointer-events: none;
             z-index: 9999;

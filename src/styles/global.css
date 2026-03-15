@@ -27,29 +27,30 @@
   transform: translateY(0);
 }
 
-/* Directional variants */
+/* Directional variants — use translateY instead of translateX to avoid
+   triggering horizontal overflow on mobile devices. */
 .reveal-left {
   opacity: 0;
-  transform: translateX(-60px);
+  transform: translateY(40px);
   transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
               transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .reveal-left.revealed {
   opacity: 1;
-  transform: translateX(0);
+  transform: translateY(0);
 }
 
 .reveal-right {
   opacity: 0;
-  transform: translateX(60px);
+  transform: translateY(40px);
   transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
               transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .reveal-right.revealed {
   opacity: 1;
-  transform: translateX(0);
+  transform: translateY(0);
 }
 
 .reveal-scale {
