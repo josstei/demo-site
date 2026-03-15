@@ -8,7 +8,7 @@ const navLinks = [
 ---
 
 <header class="bg-white/80 backdrop-blur-sm shadow-sm sticky top-0 z-50">
-  <nav class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+  <nav class="max-w-6xl mx-auto px-6 sm:px-8 py-4 flex items-center justify-between">
     <a href={import.meta.env.BASE_URL} class="flex items-center gap-3 group">
       <div class="w-10 h-10 bg-pastel-blue rounded-full flex items-center justify-center text-white font-bold text-lg">
         A
@@ -46,7 +46,7 @@ const navLinks = [
 
   <!-- Mobile nav -->
   <div id="mobile-menu" class="hidden md:hidden border-t border-pastel-blue/20">
-    <ul class="px-4 py-4 space-y-3">
+    <ul class="px-6 sm:px-8 py-4 space-y-3">
       {navLinks.map((link) => (
         <li>
           <a
